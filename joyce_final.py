@@ -15,7 +15,7 @@ class Player(Character):
 		self.weight_max = 60.
 	def quit(self):
 		if self.weight > self.weight_goal:
-			print "%s is too tired of losing weight, so %s lose the chance to go to Cancun." % (self.name, self.name)
+			print "%s is too tired of losing weight, so %s loses the chance to go to Cancun." % (self.name, self.name)
 			sys.exit()
 		else:
 			print "Great job, %s now can wear a super hot bikini to the beach" % self.name
@@ -24,21 +24,21 @@ class Player(Character):
 	def status(self): print "{}'s weight: {}/{}".format(self.name, self.weight, self.weight_max)
 	def sleep(self):
 		if self.weight < self.weight_max - 1:
-			print "%s is too lazy so choose to sleep at home so the weight increase." % self.name; self.weight = self.weight + 1
+			print "%s is too lazy so she chooses to sleep at home, so the weight increase." % self.name; self.weight = self.weight + 1
 		else:
-			print "%s is fatter then before, %s lose the chance to go to Cancun and wear a super hot bikini to the beach!" % (self.name, self.name)
+			print "%s is fatter then before, %s loses the chance to go to Cancun and wears a super hot bikini to the beach!" % (self.name, self.name)
 			sys.exit()
 	def cheesecakes(self):
 		if self.weight < self.weight_max - 1.5:
-			print "%s can't help but eats the cheesecakes, and thus increases 1.5kg." % self.name; self.weight = self.weight + 1.5
+			print "%s can't help but eat the cheesecakes, and thus increases 1.5kg." % self.name; self.weight = self.weight + 1.5
 		else:
-			print "%s is fatter then before, %s lose the chance to go to Cancun and wear a super hot bikini to the beach!" % (self.name, self.name)
+			print "%s is fatter then before, %s loses the chance to go to Cancun and wears a super hot bikini to the beach!" % (self.name, self.name)
 			sys.exit()
 	def bbq_chicken(self):
 		if self.weight < self.weight_max -2:
 			print "%s eats all of the bbq chicken and is regreting for doing this beacuse %s increase 2 kg." % (self.name,self.name); self.weight = self.weight + 2
 		else:
-			print "%s is fatter then before, %s lose the chance to go to Cancun and wear a super hot bikini to the beach!" % (self.name, self.name)
+			print "%s is fatter then before, %s loses the chance to go to Cancun and wears a super hot bikini to the beach!" % (self.name, self.name)
 			sys.exit()
 	def work_out(self):
 		if self.weight <= self.weight_goal + 0.8:
@@ -78,6 +78,12 @@ while(p.weight <= 60):
     for c in Commands.keys():
       if args[0] == c[:len(args[0])]:
         Commands[c](p)
+        commandFound = True
+        break
+    if not commandFound:
+      print "%s doesn't understand the suggestion." % p.name
+
+
         commandFound = True
         break
     if not commandFound:
